@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Merge - Cyberpunk Edition</title>
+    <link href="https://danilmihryukov-stack.github.io/neon-merge-sait1/" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #05010d;
+            font-family: 'Share Tech Mono', monospace;
+            color: #00ffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px), 
+                        linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(36px, 10vw, 72px);
+            font-weight: 900;
+            letter-spacing: 8px;
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+            margin-bottom: 10px;
+            animation: glitch 3s infinite;
+        }
+        
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-3px, 2px); }
+            94% { transform: translate(3px, -2px); }
+            96% { transform: translate(-2px, 3px); }
+        }
+        
+        .logo .subtitle {
+            font-size: 18px;
+            letter-spacing: 5px;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+        
+        .downloads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .download-card {
+            background: rgba(10, 4, 24, 0.9);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+        }
+        
+        .download-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+            border-color: #ff00ff;
+        }
+        
+        .download-card.windows:hover { border-color: #00a4ef; box-shadow: 0 0 40px rgba(0, 164, 239, 0.6); }
+        .download-card.android:hover { border-color: #3ddc84; box-shadow: 0 0 40px rgba(61, 220, 132, 0.6); }
+        .download-card.ios:hover { border-color: #007aff; box-shadow: 0 0 40px rgba(0, 122, 255, 0.6); }
+        
+        .platform-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .platform-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+        
+        .platform-desc {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid currentColor;
+            color: inherit;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+        }
+        
+        .download-btn:hover {
+            background: currentColor;
+            box-shadow: 0 0 30px currentColor;
+            transform: scale(1.05);
+        }
+        
+        .windows { color: #00a4ef; }
+        .android { color: #3ddc84; }
+        .ios { color: #007aff; }
+        
+        .features {
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(10, 4, 24, 0.9);
+            border: 2px solid #ff00ff;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+        }
+        
+        .features h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #ff00ff;
+            text-shadow: 0 0 15px #ff00ff;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            padding: 15px;
+            border-left: 3px solid #00ffff;
+            background: rgba(0, 255, 255, 0.05);
+        }
+        
+        .feature-item h3 {
+            color: #00ffff;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .feature-item p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .downloads { grid-template-columns: 1fr; }
+            .logo h1 { font-size: 36px; }
+            .platform-icon { font-size: 60px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>NEON MERGE</h1>
+            <div class="subtitle">// CYBERPUNK EDITION //</div>
+        </div>
+        
+        <div class="downloads">
+            <!-- Windows -->
+            <div class="download-card windows">
+                <div class="platform-icon">🖥️</div>
+                <div class="platform-name">WINDOWS</div>
+                <div class="platform-desc">
+                    Полноценная версия для ПК<br>
+                    Установщик .exe<br>
+                    Windows 10/11 x64
+                </div>
+                <a href="Neon Merge Setup 1.0.0.exe" class="download-btn" download>
+                    ⬇ СКАЧАТЬ
+                </a>
+            </div>
+            
+            <!-- Android -->
+            <div class="download-card android">
+                <div class="platform-icon">📱</div>
+                <div class="platform-name">ANDROID</div>
+                <div class="platform-desc">
+                    Мобильная версия<br>
+                    APK файл<br>
+                    Android 8.0+
+                </div>
+                <a href="app-debug.apk" class="download-btn" download>
+                     СКАЧАТЬ
+                </a>
+            </div>
+            
+            <!-- iOS -->
+            <div class="download-card ios">
+                <div class="platform-icon">🍎</div>
+                <div class="platform-name">iOS</div>
+                <div class="platform-desc">
+                    Установи как приложение<br>
+                    Открой в Safari<br>
+                    "На экран Домой"
+                </div>
+                <a href="https://neon-merge-play.netlify.app" class="download-btn" target="_blank">
+                    📲 ОТКРЫТЬ
+                </a>
+            </div>
+        </div>
+        
+        <div class="features">
+            <h2>⚡ ОСОБЕННОСТИ ИГРЫ</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>🎮 Геймплей</h3>
+                    <p>Слияние фруктов, комбо-система, достижения</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🎨 Дизайн</h3>
+                    <p>Киберпанк стиль, неоновое свечение, 4 темы</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🎵 Звук</h3>
+                    <p>Процедурная музыка, эффекты слияния</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📱 Платформы</h3>
+                    <p>Windows, Android, iOS, веб-браузер</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🏆 Коллекция</h3>
+                    <p>11 уровней фруктов от вишни до арбуза</p>
+                </div>
+                <div class="feature-item">
+                    <h3>⚡ Производительность</h3>
+                    <p>Физика Matter.js, оптимизация под мобильные</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2026 NEON SYSTEMS | Neon Merge - Cyberpunk Edition</p>
+            <p style="margin-top: 10px;">Сделано с 💜 для геймеров</p>
+        </div>
+    </div>
+</body>
+</html>
