@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neon Merge - Cyberpunk Edition</title>
-    <!-- НЕТ РЕДИРЕКТА! -->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             background: #05010d;
             font-family: 'Courier New', monospace;
             color: #00ffff;
             min-height: 100vh;
         }
+        
         body::before {
             content: '';
             position: fixed;
@@ -23,15 +24,18 @@
             pointer-events: none;
             z-index: -1;
         }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px 20px;
         }
+        
         .logo {
             text-align: center;
             margin-bottom: 30px;
         }
+        
         .logo h1 {
             font-family: 'Arial Black', 'Impact', sans-serif;
             font-size: clamp(36px, 10vw, 72px);
@@ -41,24 +45,28 @@
             text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
             animation: glitch 3s infinite;
         }
+        
         @keyframes glitch {
             0%, 90%, 100% { transform: translate(0); }
             92% { transform: translate(-3px, 2px); }
             94% { transform: translate(3px, -2px); }
             96% { transform: translate(-2px, 3px); }
         }
+        
         .logo .subtitle {
             font-size: 18px;
             letter-spacing: 5px;
             color: #00ffff;
             text-shadow: 0 0 10px #00ffff;
         }
+        
         .downloads {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
+        
         .download-card {
             background: rgba(10, 4, 24, 0.9);
             border: 2px solid #00ffff;
@@ -69,14 +77,18 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
             clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
         }
+        
         .download-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
         }
+        
         .download-card.windows:hover { border-color: #00a4ef; box-shadow: 0 0 40px rgba(0, 164, 239, 0.6); }
         .download-card.android:hover { border-color: #3ddc84; box-shadow: 0 0 40px rgba(61, 220, 132, 0.6); }
         .download-card.ios:hover { border-color: #007aff; box-shadow: 0 0 40px rgba(0, 122, 255, 0.6); }
+        
         .platform-icon { font-size: 60px; margin-bottom: 10px; }
+        
         .platform-name {
             font-family: 'Arial Black', 'Impact', sans-serif;
             font-size: 24px;
@@ -84,12 +96,14 @@
             margin-bottom: 10px;
             letter-spacing: 3px;
         }
+        
         .platform-desc {
             font-size: 13px;
             color: #888;
             margin-bottom: 20px;
             line-height: 1.5;
         }
+        
         .download-btn {
             display: inline-block;
             padding: 12px 30px;
@@ -105,15 +119,18 @@
             clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
             text-shadow: 0 0 5px currentColor;
         }
+        
         .download-btn:hover {
             background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 0 30px currentColor;
             transform: scale(1.05);
             text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
         }
+        
         .windows { color: #00a4ef; }
         .android { color: #3ddc84; }
         .ios { color: #007aff; }
+        
         .features {
             padding: 25px;
             background: rgba(10, 4, 24, 0.9);
@@ -121,6 +138,7 @@
             border-radius: 15px;
             box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
         }
+        
         .features h2 {
             font-family: 'Arial Black', 'Impact', sans-serif;
             font-size: 26px;
@@ -129,25 +147,30 @@
             color: #ff00ff;
             text-shadow: 0 0 15px #ff00ff;
         }
+        
         .feature-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 15px;
         }
+        
         .feature-item {
             padding: 12px;
             border-left: 3px solid #00ffff;
             background: rgba(0, 255, 255, 0.05);
         }
+        
         .feature-item h3 {
             color: #00ffff;
             margin-bottom: 5px;
             font-size: 16px;
         }
+        
         .feature-item p {
             color: #888;
             font-size: 13px;
         }
+        
         .footer {
             text-align: center;
             margin-top: 30px;
@@ -155,6 +178,7 @@
             color: #666;
             font-size: 12px;
         }
+        
         @media (max-width: 768px) {
             .downloads { grid-template-columns: 1fr; }
             .logo h1 { font-size: 36px; }
@@ -198,7 +222,7 @@
                 <div class="platform-desc">
                     Играй онлайн<br>Safari → "На экран Домой"
                 </div>
-                <a href="<a href="https://neon-merge-play.netlify.app" class="download-btn" target="_blank">" target="_blank">
+                <a href="https://danilmihryukov-stack.github.io/neon-merge-sait1/" class="download-btn" target="_blank">
                     &#127918; ИГРАТЬ
                 </a>
             </div>
