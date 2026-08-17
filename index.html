@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neon Merge - Cyberpunk Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,16 +15,12 @@
             font-family: 'Share Tech Mono', monospace;
             color: #00ffff;
             min-height: 100vh;
-            overflow-x: hidden;
         }
         
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px), 
                         linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -33,12 +31,12 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 20px;
         }
         
         .logo {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
         }
         
         .logo h1 {
@@ -48,7 +46,6 @@
             letter-spacing: 8px;
             color: #ff00ff;
             text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
-            margin-bottom: 10px;
             animation: glitch 3s infinite;
         }
         
@@ -68,16 +65,16 @@
         
         .downloads {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
         
         .download-card {
             background: rgba(10, 4, 24, 0.9);
             border: 2px solid #00ffff;
             border-radius: 15px;
-            padding: 40px 30px;
+            padding: 25px 20px;
             text-align: center;
             transition: all 0.3s;
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
@@ -85,54 +82,52 @@
         }
         
         .download-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
-            border-color: #ff00ff;
         }
         
         .download-card.windows:hover { border-color: #00a4ef; box-shadow: 0 0 40px rgba(0, 164, 239, 0.6); }
         .download-card.android:hover { border-color: #3ddc84; box-shadow: 0 0 40px rgba(61, 220, 132, 0.6); }
         .download-card.ios:hover { border-color: #007aff; box-shadow: 0 0 40px rgba(0, 122, 255, 0.6); }
         
-        .platform-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
+        .platform-icon { font-size: 60px; margin-bottom: 10px; }
         
         .platform-name {
             font-family: 'Orbitron', sans-serif;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             letter-spacing: 3px;
         }
         
         .platform-desc {
-            font-size: 14px;
+            font-size: 13px;
             color: #888;
-            margin-bottom: 25px;
-            line-height: 1.6;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
         
         .download-btn {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 12px 30px;
             background: transparent;
             border: 2px solid currentColor;
             color: inherit;
             font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s;
             clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+            text-shadow: 0 0 5px currentColor;
         }
         
         .download-btn:hover {
-            background: currentColor;
+            background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 0 30px currentColor;
             transform: scale(1.05);
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
         }
         
         .windows { color: #00a4ef; }
@@ -140,8 +135,7 @@
         .ios { color: #007aff; }
         
         .features {
-            margin-top: 60px;
-            padding: 40px;
+            padding: 25px;
             background: rgba(10, 4, 24, 0.9);
             border: 2px solid #ff00ff;
             border-radius: 15px;
@@ -150,8 +144,8 @@
         
         .features h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 32px;
-            margin-bottom: 30px;
+            font-size: 26px;
+            margin-bottom: 20px;
             text-align: center;
             color: #ff00ff;
             text-shadow: 0 0 15px #ff00ff;
@@ -159,32 +153,31 @@
         
         .feature-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
         }
         
         .feature-item {
-            padding: 15px;
+            padding: 12px;
             border-left: 3px solid #00ffff;
             background: rgba(0, 255, 255, 0.05);
         }
         
         .feature-item h3 {
             color: #00ffff;
-            margin-bottom: 10px;
-            font-size: 18px;
+            margin-bottom: 5px;
+            font-size: 16px;
         }
         
         .feature-item p {
             color: #888;
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 13px;
         }
         
         .footer {
             text-align: center;
-            margin-top: 60px;
-            padding: 30px;
+            margin-top: 30px;
+            padding: 15px;
             color: #666;
             font-size: 12px;
         }
@@ -192,7 +185,7 @@
         @media (max-width: 768px) {
             .downloads { grid-template-columns: 1fr; }
             .logo h1 { font-size: 36px; }
-            .platform-icon { font-size: 60px; }
+            .platform-icon { font-size: 50px; }
         }
     </style>
 </head>
@@ -204,82 +197,73 @@
         </div>
         
         <div class="downloads">
-            <!-- Windows -->
             <div class="download-card windows">
-                <div class="platform-icon">🖥️</div>
+                <div class="platform-icon">&#128421;</div>
                 <div class="platform-name">WINDOWS</div>
                 <div class="platform-desc">
-                    Полноценная версия для ПК<br>
-                    Установщик .exe<br>
-                    Windows 10/11 x64
+                    ПК версия<br>Установщик .exe<br>Windows 10/11
                 </div>
                 <a href="https://github.com/danilmihryukov-stack/neon-merge-sait1/releases/download/v1.0.0/Neon.Merge.Setup.1.0.0.exe" class="download-btn" download>
-                    ⬇ СКАЧАТЬ
+                    &#11015; СКАЧАТЬ
                 </a>
             </div>
             
-            <!-- Android -->
             <div class="download-card android">
-                <div class="platform-icon">📱</div>
+                <div class="platform-icon">&#128241;</div>
                 <div class="platform-name">ANDROID</div>
                 <div class="platform-desc">
-                    Мобильная версия<br>
-                    APK файл<br>
-                    Android 8.0+
+                    Мобильная версия<br>APK файл<br>Android 8.0+
                 </div>
                 <a href="https://github.com/danilmihryukov-stack/neon-merge-sait1/releases/download/v1.0.0/app-debug.apk" class="download-btn" download>
-                     СКАЧАТЬ
+                    &#128242; СКАЧАТЬ
                 </a>
             </div>
             
-            <!-- iOS -->
             <div class="download-card ios">
-                <div class="platform-icon">🍎</div>
+                <div class="platform-icon">&#127822;</div>
                 <div class="platform-name">iOS</div>
                 <div class="platform-desc">
-                    Установи как приложение<br>
-                    Открой в Safari<br>
-                    "На экран Домой"
+                    Играй онлайн<br>Safari → "На экран Домой"
                 </div>
                 <a href="https://danilmihryukov-stack.github.io/neon-merge-sait1/" class="download-btn" target="_blank">
-                    📲 ОТКРЫТЬ
+                    &#127918; ИГРАТЬ
                 </a>
             </div>
         </div>
         
         <div class="features">
-            <h2>⚡ ОСОБЕННОСТИ ИГРЫ</h2>
+            <h2>&#9889; ОСОБЕННОСТИ</h2>
             <div class="feature-list">
                 <div class="feature-item">
-                    <h3> Геймплей</h3>
-                    <p>Слияние фруктов, комбо-система, достижения</p>
+                    <h3>&#127918; Геймплей</h3>
+                    <p>Слияние фруктов, комбо-система</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🎨 Дизайн</h3>
-                    <p>Киберпанк стиль, неоновое свечение, 4 темы</p>
+                    <h3>&#127912; Дизайн</h3>
+                    <p>Киберпанк стиль, неоновое свечение</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🎵 Звук</h3>
-                    <p>Процедурная музыка, эффекты слияния</p>
+                    <h3>&#127925; Звук</h3>
+                    <p>Процедурная музыка, эффекты</p>
                 </div>
                 <div class="feature-item">
-                    <h3>📱 Платформы</h3>
-                    <p>Windows, Android, iOS, веб-браузер</p>
+                    <h3>&#128241; Платформы</h3>
+                    <p>Windows, Android, iOS, браузер</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🏆 Коллекция</h3>
-                    <p>11 уровней фруктов от вишни до арбуза</p>
+                    <h3>&#127942; Коллекция</h3>
+                    <p>11 уровней фруктов</p>
                 </div>
                 <div class="feature-item">
-                    <h3>⚡ Производительность</h3>
-                    <p>Физика Matter.js, оптимизация под мобильные</p>
+                    <h3>&#9889; Физика</h3>
+                    <p>Matter.js, оптимизация</p>
                 </div>
             </div>
         </div>
         
         <div class="footer">
-            <p>© 2026 NEON SYSTEMS | Neon Merge - Cyberpunk Edition</p>
-            <p style="margin-top: 10px;">Сделано с 💜 для геймеров</p>
+            <p>&#169; 2026 NEON SYSTEMS | Neon Merge - Cyberpunk Edition</p>
+            <p style="margin-top: 10px;">Сделано с &#128156; для геймеров</p>
         </div>
     </div>
 </body>
