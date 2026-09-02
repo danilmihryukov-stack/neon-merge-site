@@ -31,7 +31,6 @@
             z-index: -1;
         }
 
-        /* === ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА === */
         .lang-switcher {
             position: absolute;
             top: 20px;
@@ -133,6 +132,7 @@
         .platform-icon {
             font-size: 80px;
             margin-bottom: 20px;
+            display: block;
         }
         
         .platform-name {
@@ -165,14 +165,12 @@
             clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
         }
         
-        /* === ИСПРАВЛЕНИЕ: ЯРКАЯ ВСПЫШКА ПРИ НАВЕДЕНИИ === */
         .download-btn:hover {
             background: #ffffff !important;
             color: #05010d !important;
             border-color: #ffffff !important;
             box-shadow: 0 0 30px #ffffff, 0 0 60px currentColor;
             transform: scale(1.05);
-            text-decoration: none;
         }
         
         .windows { color: #00a4ef; }
@@ -239,10 +237,9 @@
     </style>
 </head>
 <body>
-    <!-- Переключатель языка -->
     <div class="lang-switcher">
-        <button class="site-lang-btn" onclick="setSiteLanguage('ru')" id="site-lang-ru">🇷🇺 RU</button>
-        <button class="site-lang-btn" onclick="setSiteLanguage('en')" id="site-lang-en">🇬🇧 EN</button>
+        <button class="site-lang-btn active" onclick="setSiteLanguage('ru')" id="site-lang-ru">🇷🇺 RU</button>
+        <button class="site-lang-btn" onclick="setSiteLanguage('en')" id="site-lang-en">🇬 EN</button>
     </div>
 
     <div class="container">
@@ -252,7 +249,6 @@
         </div>
         
         <div class="downloads">
-            <!-- Windows -->
             <div class="download-card windows">
                 <div class="platform-icon">🖥️</div>
                 <div class="platform-name" data-i18n="win_name">WINDOWS</div>
@@ -261,12 +257,9 @@
                     <div data-i18n="win_desc2">Установщик .exe</div>
                     <div data-i18n="win_desc3">Windows 10/11 x64</div>
                 </div>
-                <a href="https://github.com/danilmihryukov-stack/neon-merge-sait1/releases/download/v1.0.0/Neon.Merge.Setup.1.0.0.exe" class="download-btn" download data-i18n="win_btn">
-                    ⬇ СКАЧАТЬ
-                </a>
+                <a href="https://github.com/danilmihryukov-stack/neon-merge-sait1/releases/download/v1.0.0/Neon.Merge.Setup.1.0.0.exe" class="download-btn" download data-i18n="win_btn">⬇ СКАЧАТЬ</a>
             </div>
             
-            <!-- Android -->
             <div class="download-card android">
                 <div class="platform-icon">📱</div>
                 <div class="platform-name" data-i18n="and_name">ANDROID</div>
@@ -275,23 +268,18 @@
                     <div data-i18n="and_desc2">APK файл</div>
                     <div data-i18n="and_desc3">Android 8.0+</div>
                 </div>
-                <a href="https://github.com/danilmihryukov-stack/neon-merge-sait1/releases/download/v1.0.0/app-debug.apk" class="download-btn" download data-i18n="and_btn">
-                    ⬇ СКАЧАТЬ
-                </a>
+                <a href="https://github.com/danilmihryukov-stack/neon-merge-sait1/releases/download/v1.0.0/app-debug.apk" class="download-btn" download data-i18n="and_btn">⬇ СКАЧАТЬ</a>
             </div>
             
-            <!-- iOS -->
             <div class="download-card ios">
                 <div class="platform-icon">🍎</div>
-                <div class="platform-name" data-i18n="ios_name">iOS</div>
+                <div class="platform-name" data-i18n="ios_name">iOS/WEB</div>
                 <div class="platform-desc">
-                    <div data-i18n="ios_desc1">Установи как приложение</div>
+                    <div data-i18n="ios_desc1">Играй онлайн или установи</div>
                     <div data-i18n="ios_desc2">Открой в Safari</div>
-                    <div data-i18n="ios_desc3">«На экран Домой»</div>
+                    <div data-i18n="ios_desc3">"На экран Домой"</div>
                 </div>
-                <a href="https://danilmihryukov-stack.github.io/neon-merge-sait1/" class="download-btn" target="_blank" data-i18n="ios_btn">
-                    📲 ОТКРЫТЬ
-                </a>
+                <a href="https://neon-merge-sait1.vercel.app/" class="download-btn" target="_blank" data-i18n="ios_btn">📲 ОТКРЫТЬ</a>
             </div>
         </div>
         
@@ -311,11 +299,11 @@
                     <p data-i18n="feat3_desc">Процедурная музыка, эффекты слияния</p>
                 </div>
                 <div class="feature-item">
-                    <h3 data-i18n="feat4_title">📱 Платформы</h3>
+                    <h3 data-i18n="feat4_title"> Платформы</h3>
                     <p data-i18n="feat4_desc">Windows, Android, iOS, веб-браузер</p>
                 </div>
                 <div class="feature-item">
-                    <h3 data-i18n="feat5_title">🏆 Коллекция</h3>
+                    <h3 data-i18n="feat5_title"> Коллекция</h3>
                     <p data-i18n="feat5_desc">11 уровней фруктов от вишни до арбуза</p>
                 </div>
                 <div class="feature-item">
@@ -331,76 +319,75 @@
         </div>
     </div>
 
-    <!-- === СКРИПТ ЛОКАЛИЗАЦИИ === -->
     <script>
         const siteTranslations = {
-            ru: {
-                subtitle: "// КИБЕРПАНК ИЗДАНИЕ //",
-                win_name: "WINDOWS",
-                win_desc1: "Полноценная версия для ПК",
-                win_desc2: "Установщик .exe",
-                win_desc3: "Windows 10/11 x64",
-                win_btn: "⬇ СКАЧАТЬ",
-                and_name: "ANDROID",
-                and_desc1: "Мобильная версия",
-                and_desc2: "APK файл",
-                and_desc3: "Android 8.0+",
-                and_btn: "⬇ СКАЧАТЬ",
-                ios_name: "iOS",
-                ios_desc1: "Установи как приложение",
-                ios_desc2: "Открой в Safari",
-                ios_desc3: "«На экран Домой»",
-                ios_btn: "📲 ОТКРЫТЬ",
-                features_title: "⚡ ОСОБЕННОСТИ ИГРЫ",
-                feat1_title: "🎮 Геймплей",
-                feat1_desc: "Слияние фруктов, комбо-система, достижения",
-                feat2_title: "🎨 Дизайн",
-                feat2_desc: "Киберпанк стиль, неоновое свечение, 4 темы",
-                feat3_title: "🎵 Звук",
-                feat3_desc: "Процедурная музыка, эффекты слияния",
-                feat4_title: "📱 Платформы",
-                feat4_desc: "Windows, Android, iOS через веб-браузер",
-                feat5_title: "🏆 Коллекция",
-                feat5_desc: "11 уровней фруктов от вишни до арбуза",
-                feat6_title: "⚡ Производительность",
-                feat6_desc: "Физика Matter.js, оптимизация под мобильные",
-                footer1: "© 2026 NEON SYSTEMS | Neon Merge - Cyberpunk Edition",
-                footer2: "Сделано с 💜 для геймеров"
-            },
-            en: {
-                subtitle: "// CYBERPUNK EDITION //",
-                win_name: "WINDOWS",
-                win_desc1: "Full version for PC",
-                win_desc2: ".exe Installer",
-                win_desc3: "Windows 10/11 x64",
-                win_btn: "⬇ DOWNLOAD",
-                and_name: "ANDROID",
-                and_desc1: "Mobile version",
-                and_desc2: "APK file",
-                and_desc3: "Android 8.0+",
-                and_btn: "⬇ DOWNLOAD",
-                ios_name: "iOS",
-                ios_desc1: "Install as an app",
-                ios_desc2: "Open in Safari",
-                ios_desc3: "\"Add to Home Screen\"",
-                ios_btn: "📲 OPEN",
-                features_title: "⚡ GAME FEATURES",
-                feat1_title: "🎮 Gameplay",
-                feat1_desc: "Fruit merging, combo system, achievements",
-                feat2_title: "🎨 Design",
-                feat2_desc: "Cyberpunk style, neon glow, 4 themes",
-                feat3_title: "🎵 Sound",
-                feat3_desc: "Procedural music, merge sound effects",
-                feat4_title: "📱 Platforms",
-                feat4_desc: "Windows, Android, iOS in web browser",
-                feat5_title: "🏆 Collection",
-                feat5_desc: "11 fruit levels from cherry to watermelon",
-                feat6_title: "⚡ Performance",
-                feat6_desc: "Matter.js physics, mobile optimization",
-                footer1: "© 2026 NEON SYSTEMS | Neon Merge - Cyberpunk Edition",
-                footer2: "Made with 💜 for gamers"
-            }
-        };
+    ru: {
+        subtitle: "// КИБЕРПАНК ИЗДАНИЕ //",
+        win_name: "WINDOWS",
+        win_desc1: "Полноценная версия для ПК",
+        win_desc2: "Установщик .exe",
+        win_desc3: "Windows 10/11 x64",
+        win_btn: "\u2B07 \u0421\u041A\u0410\u0427\u0410\u0422\u042C",
+        and_name: "ANDROID",
+        and_desc1: "Мобильная версия",
+        and_desc2: "APK файл",
+        and_desc3: "Android 8.0+",
+        and_btn: "\u2B07 \u0421\u041A\u0410\u0427\u0410\u0422\u042C",
+        ios_name: "iOS/WEB",
+        ios_desc1: "Играй онлайн или установи",
+        ios_desc2: "Открой в Safari",
+        ios_desc3: "\u00AB\u041D\u0430 \u044D\u043A\u0440\u0430\u043D \u0414\u043E\u043C\u043E\u0439\u00BB",
+        ios_btn: "\uD83D\uDCF2 \u041E\u0422\u041A\u0420\u042B\u0422\u042C",
+        features_title: "\u26A1 \u041E\u0421\u041E\u0411\u0415\u041D\u041D\u041E\u0421\u0422\u0418 \u0418\u0413\u0420\u042B",
+        feat1_title: "\uD83C\uDFAE \u0413\u0435\u0439\u043C\u043F\u043B\u0435\u0439",
+        feat1_desc: "Слияние фруктов, комбо-система, достижения",
+        feat2_title: "\uD83C\uDFA8 \u0414\u0438\u0437\u0430\u0439\u043D",
+        feat2_desc: "Киберпанк стиль, неоновое свечение, 4 темы",
+        feat3_title: "\uD83C\uDFB5 \u0417\u0432\u0443\u043A",
+        feat3_desc: "Процедурная музыка, эффекты слияния",
+        feat4_title: "\uD83D\uDCF1 \u041F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u044B",
+        feat4_desc: "Windows, Android, iOS, веб-браузер",
+        feat5_title: "\uD83C\uDFC6 \u041A\u043E\u043B\u043B\u0435\u043A\u0446\u0438\u044F",
+        feat5_desc: "11 уровней фруктов от вишни до арбуза",
+        feat6_title: "\u26A1 \u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C",
+        feat6_desc: "Физика Matter.js, оптимизация под мобильные",
+        footer1: "\u00A9 2026 NEON SYSTEMS | Neon Merge - Cyberpunk Edition",
+        footer2: "\u0421\u0434\u0435\u043B\u0430\u043D\u043E \u0441 \uD83D\uDC9C \u0434\u043B\u044F \u0433\u0435\u0439\u043C\u0435\u0440\u043E\u0432"
+    },
+    en: {
+        subtitle: "// CYBERPUNK EDITION //",
+        win_name: "WINDOWS",
+        win_desc1: "Full version for PC",
+        win_desc2: ".exe Installer",
+        win_desc3: "Windows 10/11 x64",
+        win_btn: "\u2B07 DOWNLOAD",
+        and_name: "ANDROID",
+        and_desc1: "Mobile version",
+        and_desc2: "APK file",
+        and_desc3: "Android 8.0+",
+        and_btn: "\u2B07 DOWNLOAD",
+        ios_name: "iOS/WEB",
+        ios_desc1: "Play online or install",
+        ios_desc2: "Open in Safari",
+        ios_desc3: "\"Add to Home Screen\"",
+        ios_btn: "\uD83D\uDCF2 OPEN",
+        features_title: "\u26A1 GAME FEATURES",
+        feat1_title: "\uD83C\uDFAE Gameplay",
+        feat1_desc: "Fruit merging, combo system, achievements",
+        feat2_title: "\uD83C\uDFA8 Design",
+        feat2_desc: "Cyberpunk style, neon glow, 4 themes",
+        feat3_title: "\uD83C\uDFB5 Sound",
+        feat3_desc: "Procedural music, merge sound effects",
+        feat4_title: "\uD83D\uDCF1 Platforms",
+        feat4_desc: "Windows, Android, iOS, web browser",
+        feat5_title: "\uD83C\uDFC6 Collection",
+        feat5_desc: "11 fruit levels from cherry to watermelon",
+        feat6_title: "\u26A1 Performance",
+        feat6_desc: "Matter.js physics, mobile optimization",
+        footer1: "\u00A9 2026 NEON SYSTEMS | Neon Merge - Cyberpunk Edition",
+        footer2: "Made with \uD83D\uDC9C for gamers"
+    }
+};
 
         let currentSiteLang = localStorage.getItem('neonMergeSiteLang') || 'ru';
 
@@ -409,21 +396,18 @@
             localStorage.setItem('neonMergeSiteLang', lang);
             document.documentElement.lang = lang;
             
-            // Обновляем все тексты с атрибутом data-i18n
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (siteTranslations[lang][key]) {
-                    el.textContent = siteTranslations[lang][key];
+                    el.innerHTML = siteTranslations[lang][key];
                 }
             });
             
-            // Обновляем активную кнопку
             document.querySelectorAll('.site-lang-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById(`site-lang-${lang}`);
             if (activeBtn) activeBtn.classList.add('active');
         }
 
-        // Запуск при загрузке страницы
         document.addEventListener('DOMContentLoaded', () => {
             setSiteLanguage(currentSiteLang);
         });
